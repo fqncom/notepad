@@ -1,6 +1,9 @@
 # books
   storage all reading books keynote and thoughts
 
+# collect
+  collections of thoughts
+
 # langs
   programming language
 
