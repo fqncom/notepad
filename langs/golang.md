@@ -5,6 +5,7 @@
 
 # blog
   * https://blog.gopheracademy.com/
+  * http://holys.im/2016/12/13/when-we-benchmark-what-should-we-care/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 
 
 
@@ -16,5 +17,5 @@
 
 ---
 # keynote
-* gorutine
-* select
+  * gorutine
+  * select
