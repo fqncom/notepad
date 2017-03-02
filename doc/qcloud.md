@@ -20,6 +20,7 @@
     > 输入yum install php php-fpm命令进行PHP的安装，当需要确认时输入”y“确认。
       输入service php-fpm start启动php-fpm服务，并使用命令cat /etc/php-fpm.d/www.conf |grep -i 'listen ='查看php-fpm配置。
       使用命令nginx -t查找nginx配置文件，并使用vi命令修改该配置文件：
+      vi /etc/nginx/nginx.conf
 
       ```
         server {
@@ -69,9 +70,81 @@
       ```
 
     > 在浏览器中，访问CentOS云服务器公网IP+php网页名称查看环境配置是否成功，如果页面可以显示“hello world”，说明配置成功。
-    *如果不成功，很有可能是安全组配置问题
+    如果不成功，很有可能是安全组配置问题
 
     [实例](http://zajitangzhai.me/index.php)
+
+    * python 基本应用
+    ```
+    yum install python-pip
+    pip install web.py
+
+    python main.py 80
+    ```
+
+
+    * [gitlab 安装](https://about.gitlab.com/downloads/#centos7)
+    * 以上为官网，部分包需要翻墙，使用替代方案：
+      * [CentOS 7 安装 GitLab CE 社区版并修改默认 Nginx](https://laravel-china.org/topics/2829)
+      * [Gitlab Community Edition 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/)
+    ```
+    yum install curl policycoreutils openssh-server openssh-clients
+    systemctl enable sshd
+    systemctl start sshd
+    yum install postfix
+    systemctl enable postfix
+    systemctl start postfix
+        * postfix: fatal: parameter inet_interfaces: no local interface found for ::1
+          * vi  /etc/postfix/main.cf
+            inet_interfaces = localhost ==> all
+            inet_protocols = all
+
+    firewall-cmd --permanent --add-service=http
+        * FirewallD is not running
+          * [How to Start and Enable Firewalld on CentOS 7](https://www.liquidweb.com/kb/how-to-start-and-enable-firewalld-on-centos-7/)
+            * systemctl enable firewalld
+            * systemctl start firewalld
+
+
+    systemctl reload firewalld
+
+    curl -LJO https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-8.9.9-ce.0.el7.x86_64.rpm
+    rpm -i gitlab-ce-8.9.9-ce.0.el7.x86_64.rpm
+    ```
+    * config
+    ```
+    gitlab-ctl reconfigure
+    gitlab-ctl status
+    gitlab-ctl stop
+    gitlab-ctl restart
+    ps aux | grep runsvdir
+    ```
+    * 禁用自带Nignx服务器
+    ```
+    vi /etc/gitlab/gitlab.rb
+    ...
+    #设置nginx为false
+    nginx['enable'] = false
+    ...
+    ```
+    * 重启 nginx, 重启gitlab
+    ```
+    gitlab-ctl reconfigure
+    service nginx restart
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   * 安装golang
