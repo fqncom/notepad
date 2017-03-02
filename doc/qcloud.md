@@ -6,7 +6,16 @@
 
 # [腾讯云入门教程](http://bbs.qcloud.com/forum.php?mod=viewthread&utm_campaign=ZhanNeiXin&tid=2387&extra=page=1)
   * [centOS 配置基础环境](http://bbs.qcloud.com/thread-1316-1-1.html)
+    * 安装基础库
+      - yum install -y git zsh curl openssh-server cronie autojump svn
+    * 安装git
+      yum install git -y
+    * 安装oh-my-zsh
+      yum install curl openssh-server cronie
+      sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     * yum install -y httpd php php-fpm mysql mysql-server php-mysql
+    * [centOS7下mysql失败](http://www.cnblogs.com/starof/p/4680083.html)
+      * yum install mariadb-server mariadb
 
   * [部署应用环境](https://www.qcloud.com/document/product/213/2975)
     * 安装及启动nginx
