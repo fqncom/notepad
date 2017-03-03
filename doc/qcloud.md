@@ -7,7 +7,7 @@
 # [腾讯云入门教程](http://bbs.qcloud.com/forum.php?mod=viewthread&utm_campaign=ZhanNeiXin&tid=2387&extra=page=1)
   * [centOS 配置基础环境](http://bbs.qcloud.com/thread-1316-1-1.html)
     * 安装基础库
-      - yum install -y git zsh curl openssh-server cronie autojump svn
+      - yum install -y git zsh curl openssh-server cronie autojump svn nginx
     * 安装git
       yum install git -y
     * 安装oh-my-zsh
@@ -19,6 +19,7 @@
 
   * [部署应用环境](https://www.qcloud.com/document/product/213/2975)
     * 安装及启动nginx
+      - chkconfig nginx on
 
     > 输入yum install nginx命令进行nginx的安装，当需要确认时输入”y“确认。
       输入service nginx start启动nginx服务。
@@ -90,6 +91,25 @@
 
     python main.py 80
     ```
+
+    * [install mysql](https://devops.profitbricks.com/tutorials/install-mysql-on-centos-7/)
+      - sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+      - sudo yum -y install mysql-community-server
+      - sudo /usr/bin/systemctl enable mysqld
+      - sudo /usr/bin/systemctl start mysqld
+      - sudo /usr/bin/mysql_secure_installation
+      - firewall-cmd --permanent --zone=trusted --add-source=192.0.2.10/32
+      - firewall-cmd --permanent --zone=trusted --add-port=3306/tcp
+      - firewall-cmd  --reload
+      - mysql -u root -p mysql
+      - create database appdb;
+      - grant all on appdb.* to 'appuser'@'localhost' identified by 'password';
+      - quit;
+      - mysql -u appuser -p -h localhost appdb
+
+
+
+
 
 
 
