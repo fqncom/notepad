@@ -8,7 +8,8 @@
     *
     * yum install mariadb-server mariadb (http://www.cnblogs.com/starof/)
 
-# [网友安装](https://imjad.cn/archives/lab/using-gogs-to-build-your-own-git-server-on-centos)
+# [网友安装](https://imjad.cn/archives/lab/using-gogs-to-build-your-own-git-server-on-centos) #
+    * https://blog.mynook.info/post/host-your-own-git-server-using-gogs
 
 
 # [官方版本for centOS7](https://packager.io/gh/pkgr/gogs/install?bid=613#centos-7-gogs)
