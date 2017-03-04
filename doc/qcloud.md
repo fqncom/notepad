@@ -7,7 +7,8 @@
 # [腾讯云入门教程](http://bbs.qcloud.com/forum.php?mod=viewthread&utm_campaign=ZhanNeiXin&tid=2387&extra=page=1)
   * [centOS 配置基础环境](http://bbs.qcloud.com/thread-1316-1-1.html)
     * 安装基础库
-      - yum install -y git zsh curl openssh-server cronie autojump svn nginx
+      - yum install -y git zsh curl openssh-server cronie autojump svn nginx npm gcc zlib-devel openssl-devel perl cpio expat-devel gettext-devel autoconf gcc gcc-c++ make git openssl nodejs
+
     * 安装git
       yum install git -y
     * 安装oh-my-zsh
